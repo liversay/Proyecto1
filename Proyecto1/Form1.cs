@@ -1,8 +1,8 @@
 namespace Proyecto1
 {
-    public partial class Form1 : Form
+    public partial class Calculadora : Form
     {
-        public Form1()
+        public Calculadora()
         {
             InitializeComponent();
         }
