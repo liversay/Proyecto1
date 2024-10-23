@@ -89,7 +89,7 @@ namespace Proyecto1
         private void btnCE_Click(object sender, EventArgs e)
         {
             txtResultado.Clear();
-            txtOperacion.Clear();
+            //txtOperacion.Clear();
             primerNumero = 0;
             segundoNumero = 0;
             operador = "";
@@ -151,6 +151,9 @@ namespace Proyecto1
                             return;
                         }
                         break;
+                    case "^":
+                        resultado = Math.Pow(primerNumero, segundoNumero);
+                        break;
                     default:
                         MessageBox.Show("Operador no válido.");
                         break;
@@ -170,7 +173,17 @@ namespace Proyecto1
 
         private void btnPunto_Click(object sender, EventArgs e)
         {
-            evento.ingresarTexto(txtOperacion, btnPunto);
+            if (!txtResultado.Text.Contains("."))
+            {
+                if (string.IsNullOrEmpty(txtResultado.Text))
+                {
+                    txtResultado.Text = "0.";
+                }
+                else
+                {
+                    txtResultado.Text += ".";
+                }
+            }
         }
 
         private void btnLog_Click(object sender, EventArgs e)
@@ -204,6 +217,53 @@ namespace Proyecto1
             }
 
             evento.ingresarTexto(txtResultado, btnNumero);
+        }
+
+        private void btnSigno_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtResultado.Text))
+            {
+                double numero = Convert.ToDouble(txtResultado.Text);
+                numero = -numero;
+                txtResultado.Text = numero.ToString();
+            }
+        }
+
+        private void btnPotencia_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                primerNumero = Convert.ToDouble(txtResultado.Text);
+                txtOperacion.Text = primerNumero + "^";
+                operador = "^";
+                txtResultado.Clear();
+            }
+            catch (Exception) {
+                MessageBox.Show("Primero agregue el número al cual desea sacarle potencia");
+            }
+        }
+
+        private void btnRaiz_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double numero = Convert.ToDouble(txtResultado.Text);
+
+                if (numero >= 0)
+                {
+                    resultado = Math.Sqrt(numero);
+                    txtOperacion.Text = "\u221A(" + numero + ")";
+                    txtResultado.Text = resultado.ToString();
+                    esNuevoNumero = true;
+                }
+                else
+                {
+                    MessageBox.Show("Error: No se puede calcular la raíz cuadrada de un número negativo.");
+                }
+            }
+            catch (Exception) {
+                MessageBox.Show("Primero agregue el número al cual desea sacarle raíz");
+            }
         }
     }
 }

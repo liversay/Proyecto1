@@ -48,7 +48,7 @@
             btnIgual = new Button();
             btnPunto = new Button();
             btn0 = new Button();
-            btnHistorial = new Button();
+            btnSigno = new Button();
             btnSuma = new Button();
             btn3 = new Button();
             btn2 = new Button();
@@ -66,14 +66,16 @@
             btnPotencia.TabIndex = 0;
             btnPotencia.Text = "x^y";
             btnPotencia.UseVisualStyleBackColor = false;
+            btnPotencia.Click += btnPotencia_Click;
             // 
             // txtResultado
             // 
             txtResultado.Location = new Point(8, 41);
             txtResultado.Name = "txtResultado";
-            txtResultado.RightToLeft = RightToLeft.Yes;
+            txtResultado.RightToLeft = RightToLeft.No;
             txtResultado.Size = new Size(328, 27);
             txtResultado.TabIndex = 1;
+            txtResultado.TextAlign = HorizontalAlignment.Right;
             // 
             // btnCE
             // 
@@ -132,6 +134,7 @@
             btnRaiz.TabIndex = 5;
             btnRaiz.Text = "√x";
             btnRaiz.UseVisualStyleBackColor = true;
+            btnRaiz.Click += btnRaiz_Click;
             // 
             // btnResta
             // 
@@ -243,14 +246,15 @@
             btn0.UseVisualStyleBackColor = true;
             btn0.Click += btn0_Click;
             // 
-            // btnHistorial
+            // btnSigno
             // 
-            btnHistorial.Location = new Point(8, 359);
-            btnHistorial.Name = "btnHistorial";
-            btnHistorial.Size = new Size(82, 57);
-            btnHistorial.TabIndex = 21;
-            btnHistorial.Text = "Mostrar Cálculos";
-            btnHistorial.UseVisualStyleBackColor = true;
+            btnSigno.Location = new Point(8, 359);
+            btnSigno.Name = "btnSigno";
+            btnSigno.Size = new Size(82, 57);
+            btnSigno.TabIndex = 21;
+            btnSigno.Text = "+/-";
+            btnSigno.UseVisualStyleBackColor = true;
+            btnSigno.Click += btnSigno_Click;
             // 
             // btnSuma
             // 
@@ -296,9 +300,10 @@
             // 
             txtOperacion.Location = new Point(8, 8);
             txtOperacion.Name = "txtOperacion";
-            txtOperacion.RightToLeft = RightToLeft.Yes;
+            txtOperacion.RightToLeft = RightToLeft.No;
             txtOperacion.Size = new Size(328, 27);
             txtOperacion.TabIndex = 25;
+            txtOperacion.TextAlign = HorizontalAlignment.Right;
             // 
             // btnPI
             // 
@@ -306,7 +311,7 @@
             btnPI.Name = "btnPI";
             btnPI.Size = new Size(82, 57);
             btnPI.TabIndex = 6;
-            btnPI.Text = "PI";
+            btnPI.Text = "π";
             btnPI.UseVisualStyleBackColor = true;
             btnPI.Click += btnLog_Click;
             // 
@@ -320,7 +325,7 @@
             Controls.Add(btnIgual);
             Controls.Add(btnPunto);
             Controls.Add(btn0);
-            Controls.Add(btnHistorial);
+            Controls.Add(btnSigno);
             Controls.Add(btnSuma);
             Controls.Add(btn3);
             Controls.Add(btn2);
@@ -371,7 +376,7 @@
         private Button btnIgual;
         private Button btnPunto;
         private Button btn0;
-        private Button btnHistorial;
+        private Button btnSigno;
         private Button btnSuma;
         private Button btn3;
         private Button btn2;
