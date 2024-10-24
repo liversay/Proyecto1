@@ -35,7 +35,6 @@
             btnC = new Button();
             btnBorrar = new Button();
             btnDivision = new Button();
-            btnPorcentaje = new Button();
             btnRaiz = new Button();
             btnResta = new Button();
             btn6 = new Button();
@@ -54,15 +53,14 @@
             btn2 = new Button();
             btn1 = new Button();
             txtOperacion = new TextBox();
-            btnPI = new Button();
             SuspendLayout();
             // 
             // btnPotencia
             // 
             btnPotencia.BackColor = SystemColors.Window;
-            btnPotencia.Location = new Point(8, 74);
+            btnPotencia.Location = new Point(130, 131);
             btnPotencia.Name = "btnPotencia";
-            btnPotencia.Size = new Size(82, 57);
+            btnPotencia.Size = new Size(124, 57);
             btnPotencia.TabIndex = 0;
             btnPotencia.Text = "x^y";
             btnPotencia.UseVisualStyleBackColor = false;
@@ -79,9 +77,9 @@
             // 
             // btnCE
             // 
-            btnCE.Location = new Point(90, 74);
+            btnCE.Location = new Point(8, 74);
             btnCE.Name = "btnCE";
-            btnCE.Size = new Size(82, 57);
+            btnCE.Size = new Size(122, 57);
             btnCE.TabIndex = 2;
             btnCE.Text = "CE";
             btnCE.UseVisualStyleBackColor = true;
@@ -89,9 +87,9 @@
             // 
             // btnC
             // 
-            btnC.Location = new Point(172, 74);
+            btnC.Location = new Point(130, 74);
             btnC.Name = "btnC";
-            btnC.Size = new Size(82, 57);
+            btnC.Size = new Size(124, 57);
             btnC.TabIndex = 3;
             btnC.Text = "C";
             btnC.UseVisualStyleBackColor = true;
@@ -117,21 +115,11 @@
             btnDivision.UseVisualStyleBackColor = true;
             btnDivision.Click += btnDivision_Click;
             // 
-            // btnPorcentaje
-            // 
-            btnPorcentaje.BackColor = SystemColors.ActiveCaptionText;
-            btnPorcentaje.Location = new Point(172, 131);
-            btnPorcentaje.Name = "btnPorcentaje";
-            btnPorcentaje.Size = new Size(82, 57);
-            btnPorcentaje.TabIndex = 7;
-            btnPorcentaje.UseVisualStyleBackColor = false;
-            btnPorcentaje.Click += btnPorcentaje_Click;
-            // 
             // btnRaiz
             // 
             btnRaiz.Location = new Point(8, 131);
             btnRaiz.Name = "btnRaiz";
-            btnRaiz.Size = new Size(82, 57);
+            btnRaiz.Size = new Size(122, 57);
             btnRaiz.TabIndex = 5;
             btnRaiz.Text = "√x";
             btnRaiz.UseVisualStyleBackColor = true;
@@ -306,16 +294,6 @@
             txtOperacion.TabIndex = 25;
             txtOperacion.TextAlign = HorizontalAlignment.Right;
             // 
-            // btnPI
-            // 
-            btnPI.BackColor = SystemColors.ActiveCaptionText;
-            btnPI.Location = new Point(90, 131);
-            btnPI.Name = "btnPI";
-            btnPI.Size = new Size(82, 57);
-            btnPI.TabIndex = 6;
-            btnPI.UseVisualStyleBackColor = false;
-            btnPI.Click += btnLog_Click;
-            // 
             // Calculadora
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -340,8 +318,6 @@
             Controls.Add(btn8);
             Controls.Add(btn7);
             Controls.Add(btnDivision);
-            Controls.Add(btnPorcentaje);
-            Controls.Add(btnPI);
             Controls.Add(btnRaiz);
             Controls.Add(btnBorrar);
             Controls.Add(btnC);
@@ -365,7 +341,6 @@
         private Button btnC;
         private Button btnBorrar;
         private Button btnDivision;
-        private Button btnPorcentaje;
         private Button btnRaiz;
         private Button btnResta;
         private Button btn6;
@@ -384,6 +359,5 @@
         private Button btn2;
         private Button btn1;
         private TextBox txtOperacion;
-        private Button btnPI;
     }
 }

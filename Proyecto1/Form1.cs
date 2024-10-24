@@ -112,7 +112,6 @@ namespace Proyecto1
 
         private void btnC_Click(object sender, EventArgs e)
         {
-            //agregar la eliminacion del historial
             txtResultado.Clear();
             txtOperacion.Clear();
             primerNumero = 0;
