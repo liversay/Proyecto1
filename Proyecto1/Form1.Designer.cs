@@ -119,12 +119,13 @@
             // 
             // btnPorcentaje
             // 
+            btnPorcentaje.BackColor = SystemColors.ActiveCaptionText;
             btnPorcentaje.Location = new Point(172, 131);
             btnPorcentaje.Name = "btnPorcentaje";
             btnPorcentaje.Size = new Size(82, 57);
             btnPorcentaje.TabIndex = 7;
-            btnPorcentaje.Text = "%";
-            btnPorcentaje.UseVisualStyleBackColor = true;
+            btnPorcentaje.UseVisualStyleBackColor = false;
+            btnPorcentaje.Click += btnPorcentaje_Click;
             // 
             // btnRaiz
             // 
@@ -307,12 +308,12 @@
             // 
             // btnPI
             // 
+            btnPI.BackColor = SystemColors.ActiveCaptionText;
             btnPI.Location = new Point(90, 131);
             btnPI.Name = "btnPI";
             btnPI.Size = new Size(82, 57);
             btnPI.TabIndex = 6;
-            btnPI.Text = "π";
-            btnPI.UseVisualStyleBackColor = true;
+            btnPI.UseVisualStyleBackColor = false;
             btnPI.Click += btnLog_Click;
             // 
             // Calculadora

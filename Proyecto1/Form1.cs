@@ -1,4 +1,4 @@
-using System.Configuration;
+
 using System.Data;
 using System.Data.SqlClient;
 
@@ -161,6 +161,7 @@ namespace Proyecto1
 
         private void btnIgual_Click(object sender, EventArgs e)
         {
+
             if (!string.IsNullOrEmpty(txtResultado.Text))
             {
                 segundoNumero = Convert.ToDouble(txtResultado.Text);
@@ -225,7 +226,7 @@ namespace Proyecto1
 
         private void btnLog_Click(object sender, EventArgs e)
         {
-            evento.ingresarTexto(txtOperacion, btnPI);
+
         }
 
         private void btnOperadorClick(object sender)
@@ -306,6 +307,11 @@ namespace Proyecto1
         }
 
         private void Calculadora_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPorcentaje_Click(object sender, EventArgs e)
         {
 
         }
