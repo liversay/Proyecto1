@@ -1,3 +1,7 @@
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+
 namespace Proyecto1
 {
     public partial class Calculadora : Form
@@ -9,69 +13,101 @@ namespace Proyecto1
         double resultado = 0;
         bool esNuevoNumero = false;
 
+        string connectionString = @"Server=.\sqlexpress;Database=Calculadora;TrustServerCertificate=true;Integrated Security=SSPI;";
+        SqlConnection conexion;
+
         public Calculadora()
         {
             InitializeComponent();
+            InitializeDatabase();
+        }
+        private void InitializeDatabase()
+        {
+            try
+            {
+                conexion = new SqlConnection(connectionString);
+                conexion.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al conectar con la base de datos: {ex.Message}");
+            }
+        }
+
+        private void GuardarOperacion(double primerNumero, double segundoNumero, string operador, double resultado)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("INSERT INTO Calculos (Operacion, Resultado) VALUES (@Operacion, @Resultado)", conexion))
+                {
+                    string operacion = $"{primerNumero} {operador} {segundoNumero}";
+                    cmd.Parameters.AddWithValue("@Operacion", operacion);
+                    cmd.Parameters.AddWithValue("@Resultado", resultado);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al guardar la operación: {ex.Message}");
+            }
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            if (conexion != null && conexion.State == ConnectionState.Open)
+            {
+                conexion.Close();
+            }
         }
 
         private void btn0_Click(object sender, EventArgs e)
         {
             btnNumeroClick(sender);
-            //evento.ingresarTexto(txtOperacion, btn0);
         }
 
         private void btn1_Click(object sender, EventArgs e)
         {
             btnNumeroClick(sender);
-            //evento.ingresarTexto(txtOperacion, btn1);
         }
 
         private void btn2_Click(object sender, EventArgs e)
         {
             btnNumeroClick(sender);
-            //evento.ingresarTexto(txtOperacion, btn2);
         }
 
         private void btn3_Click_1(object sender, EventArgs e)
         {
             btnNumeroClick(sender);
-            //evento.ingresarTexto(txtOperacion, btn3);
         }
 
         private void btn4_Click(object sender, EventArgs e)
         {
             btnNumeroClick(sender);
-            //evento.ingresarTexto(txtOperacion, btn4);
         }
 
         private void btn5_Click(object sender, EventArgs e)
         {
             btnNumeroClick(sender);
-            //evento.ingresarTexto(txtOperacion, btn5);
         }
 
         private void btn6_Click(object sender, EventArgs e)
         {
             btnNumeroClick(sender);
-            //evento.ingresarTexto(txtOperacion, btn6);
         }
 
         private void btn7_Click(object sender, EventArgs e)
         {
             btnNumeroClick(sender);
-            //evento.ingresarTexto(txtOperacion, btn7);
         }
 
         private void btn8_Click(object sender, EventArgs e)
         {
             btnNumeroClick(sender);
-            //evento.ingresarTexto(txtOperacion, btn8);
         }
 
         private void btn9_Click(object sender, EventArgs e)
         {
             btnNumeroClick(sender);
-            //evento.ingresarTexto(txtOperacion, btn9);
         }
 
         private void btnC_Click(object sender, EventArgs e)
@@ -161,6 +197,7 @@ namespace Proyecto1
 
                 txtOperacion.Text = primerNumero + " " + operador + " " + segundoNumero + " =";
                 txtResultado.Text = resultado.ToString();
+                GuardarOperacion(primerNumero, segundoNumero, operador, resultado);
                 esNuevoNumero = true;
             }
         }
@@ -238,7 +275,8 @@ namespace Proyecto1
                 operador = "^";
                 txtResultado.Clear();
             }
-            catch (Exception) {
+            catch (Exception)
+            {
                 MessageBox.Show("Primero agregue el número al cual desea sacarle potencia");
             }
         }
@@ -261,9 +299,15 @@ namespace Proyecto1
                     MessageBox.Show("Error: No se puede calcular la raíz cuadrada de un número negativo.");
                 }
             }
-            catch (Exception) {
+            catch (Exception)
+            {
                 MessageBox.Show("Primero agregue el número al cual desea sacarle raíz");
             }
+        }
+
+        private void Calculadora_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

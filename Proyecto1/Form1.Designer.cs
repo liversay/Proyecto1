@@ -351,6 +351,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Calculadora";
             Text = "Calculadora";
+            Load += Calculadora_Load;
             ResumeLayout(false);
             PerformLayout();
         }
